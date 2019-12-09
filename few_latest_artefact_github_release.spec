@@ -12,14 +12,10 @@ BuildRequires:  golang
 Get a few latest artefact from github release.
 
 %build
-mkdir -p _build/src/github.com/patsevanton/few_latest_artefact_github_release
-cp ../SOURCES/main.go _build/src/github.com/patsevanton/few_latest_artefact_github_release
-export GOPATH=$(pwd)/_build
-export PATH=$PATH:$(pwd)/_build/bin
-
-pushd _build/src/github.com/patsevanton/few_latest_artefact_github_release
-go build -o ../../../../../few_latest_artefact_github_release
-popd
+export GOPATH=%{_builddir}/_build
+mkdir -p _build/src/github.com/patsevanton/
+git clone https://github.com/patsevanton/few_latest_artefact_github_release.git $GOPATH/src/github.com/patsevanton/few_latest_artefact_github_release
+go build -o few_latest_artefact_github_release $GOPATH/src/github.com/patsevanton/few_latest_artefact_github_release/main.go
 
 %install
 install -d %{buildroot}%{_bindir}
