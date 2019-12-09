@@ -1,6 +1,8 @@
+%global _prefix /usr/local
+
 Name:           few_latest_artefact_github_release
 Version:        0.1
-Release:        1
+Release:        2
 Summary:        Get a few latest artefact from github release.
 License:        ASL 2.0 
 Source0:        main.go
@@ -13,17 +15,10 @@ Get a few latest artefact from github release.
 
 %build
 export GOPATH=%{_builddir}/_build
-# go get github.com/google/go-github/v28/github
 mkdir -p _build/src/github.com/patsevanton/
 git clone https://github.com/patsevanton/few_latest_artefact_github_release.git $GOPATH/src/github.com/patsevanton/few_latest_artefact_github_release
-ls
-pwd
 pushd _build/src/github.com/patsevanton/few_latest_artefact_github_release
-ls
-pwd
 go build -o ../../../../../few_latest_artefact_github_release
-ls
-pwd
 popd
 
 %install
