@@ -13,6 +13,7 @@ Get a few latest artefact from github release.
 
 %build
 export GOPATH=%{_builddir}/_build
+go get github.com/google/go-github/v28/github
 mkdir -p _build/src/github.com/patsevanton/
 git clone https://github.com/patsevanton/few_latest_artefact_github_release.git $GOPATH/src/github.com/patsevanton/few_latest_artefact_github_release
 go build -o few_latest_artefact_github_release $GOPATH/src/github.com/patsevanton/few_latest_artefact_github_release/main.go
