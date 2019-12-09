@@ -26,7 +26,6 @@ ls
 pwd
 popd
 
-
 %install
 install -d %{buildroot}%{_bindir}
 install -p -m 0755 ./few_latest_artefact_github_release %{buildroot}%{_bindir}/few_latest_artefact_github_release
